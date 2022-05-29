@@ -60,5 +60,15 @@ namespace UserRegistration
             string enteredPassword = Console.ReadLine();
             return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
         }
+
+        public string Password3()
+        {
+            //Regular expression below will match all previous conditions + atleast one numeric value
+            string REGEX_PASS = "^(?=.*[A-Z0-9]).{8,}$";
+
+            Console.Write("Enter password for validation : ");
+            string enteredPassword = Console.ReadLine();
+            return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+        }
     }
 }
