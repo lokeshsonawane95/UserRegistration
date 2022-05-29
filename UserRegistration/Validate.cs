@@ -24,7 +24,7 @@ namespace UserRegistration
         public string Email(string email)
         {
             //regular expression for validating email
-            string REGEX_EMAIL = "^([A-Za-z]){3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
+            string REGEX_EMAIL = "^([A-Za-z]){3,}(([_.+-]?)([0-9A-Za-z]{1,}))*@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
 
             //Console.Write("Enter Email Name for validation : ");
             //string enteredEmail = Console.ReadLine();
@@ -79,6 +79,24 @@ namespace UserRegistration
             Console.Write("Enter password for validation : ");
             string enteredPassword = Console.ReadLine();
             return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+        }
+
+        //Method to test each Valid and Invalid email provided separately for testing
+        public void Test()
+        {
+            Validate validate = new Validate();
+            Console.WriteLine("A. Valid Emails");
+            string[] validEmails = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com" };
+            for (int i = 0; i < validEmails.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + validEmails[i] + " : " + validate.Email(validEmails[i]));
+            }
+            Console.WriteLine("\nB. Invalid Emails");
+            string[] invalidEmails = { "abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
+            for (int i = 0; i < invalidEmails.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + invalidEmails[i] + " : " + validate.Email(invalidEmails[i]));
+            }
         }
     }
 }
