@@ -30,5 +30,15 @@ namespace UserRegistration
             //string enteredEmail = Console.ReadLine();
             return Regex.IsMatch(email, REGEX_EMAIL) ? "Email is valid" : "Email is invalid";
         }
+
+        public string Mobile()
+        {
+            //Regular expression for checking mobile number, all mobile numbers starts with 6, 7, 8 or 9
+            string REGEX_CELLNO = "^[+][1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
+
+            Console.Write("Enter country code with Mobile number for validation (give a space between them, write '+' at the beginning) : ");
+            string enteredMobileNumber = Console.ReadLine();
+            return Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO) ? "Mobile number is valid" : "Mobile number is invalid";
+        }
     }
 }
