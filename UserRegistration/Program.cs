@@ -9,6 +9,7 @@
             {
                 Console.WriteLine("\n1. Enter valid First Name");
                 Console.WriteLine("2. Enter valid Last Name");
+                Console.WriteLine("3. Enter valid email");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -21,6 +22,11 @@
                     case 2:
                         Validate validate2 = new Validate();
                         Console.WriteLine(validate2.Name("Last"));
+                        break;
+                    case 3:
+                        Validate validate3 = new Validate();
+                        Console.WriteLine("abc+100@gmail.com : " + validate3.Email("abc+100@gmail.com"));
+                        Console.WriteLine("abc@gmail.com.aa.au : " + validate3.Email("abc@gmail.com.aa.au"));
                         break;
                     case 0:
                         return;
