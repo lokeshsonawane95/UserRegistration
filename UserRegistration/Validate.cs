@@ -40,5 +40,15 @@ namespace UserRegistration
             string enteredMobileNumber = Console.ReadLine();
             return Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO) ? "Mobile number is valid" : "Mobile number is invalid";
         }
+
+        public string Password1()
+        {
+            //Regular expression below will match any character except space i.e. " "
+            string REGEX_PASS = "^.{8,}$";
+
+            Console.Write("Enter password for validation : ");
+            string enteredPassword = Console.ReadLine();
+            return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+        }
     }
 }

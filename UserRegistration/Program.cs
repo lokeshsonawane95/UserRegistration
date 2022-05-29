@@ -11,6 +11,7 @@
                 Console.WriteLine("2. Enter valid Last Name");
                 Console.WriteLine("3. Enter valid email");
                 Console.WriteLine("4. Enter Mobile number along with country code");
+                Console.WriteLine("5. Minimum 8 character password");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -32,6 +33,10 @@
                     case 4:
                         Validate validate4 = new Validate();
                         Console.WriteLine(validate4.Mobile());
+                        break;
+                    case 5:
+                        Validate validate5 = new Validate();
+                        Console.WriteLine(validate5.Password1());
                         break;
                     case 0:
                         return;
