@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace UserRegistration
 {
-    internal class Validate
+    public class Validate
     {
         public string Name(string name)
         {
-            //Regular expression or validating first name
+            //Regular expression or validating name
             string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$";
 
             Console.Write("Enter " + name + " Name for validation : ");
