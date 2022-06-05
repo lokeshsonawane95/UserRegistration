@@ -17,8 +17,30 @@ namespace UserRegistration
             Console.Write("Enter " + name + " Name for validation : ");
             string enteredName = Console.ReadLine();
 
-            //if enteredName matches with our expression then 2nd part will execute otherwise 3rd part
-            return Regex.IsMatch(enteredName, REGEX_FIRSTNAME) ? (name + " Name is valid") : (name + " Name is invalid");
+            try
+            {
+                if (enteredName.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Name should not be empty");
+                }
+                if (enteredName.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Name should not be ull");
+                }
+                if (Regex.IsMatch(enteredName, REGEX_FIRSTNAME))
+                {
+                    Console.WriteLine(name + " Name is valid");
+                    return enteredName;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Name should be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Email(string email)
@@ -28,7 +50,31 @@ namespace UserRegistration
 
             //Console.Write("Enter Email Name for validation : ");
             //string enteredEmail = Console.ReadLine();
-            return Regex.IsMatch(email, REGEX_EMAIL) ? "Email is valid" : "Email is invalid";
+
+            try
+            {
+                if (email.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Email should not be empty");
+                }
+                if (email.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Email should not be ull");
+                }
+                if (Regex.IsMatch(email, REGEX_EMAIL))
+                {
+                    Console.WriteLine("Email is valid");
+                    return email;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Email should be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Mobile()
@@ -38,7 +84,31 @@ namespace UserRegistration
 
             Console.Write("Enter country code with Mobile number for validation (give a space between them, write '+' at the beginning) : ");
             string enteredMobileNumber = Console.ReadLine();
-            return Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO) ? "Mobile number is valid" : "Mobile number is invalid";
+
+            try
+            {
+                if (enteredMobileNumber.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Mobile number not be empty");
+                }
+                if (enteredMobileNumber.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Mobile number not be ull");
+                }
+                if (Regex.IsMatch(enteredMobileNumber, REGEX_CELLNO))
+                {
+                    Console.WriteLine("Mobile number is valid");
+                    return enteredMobileNumber;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Mobile number be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Password1()
@@ -78,7 +148,31 @@ namespace UserRegistration
 
             Console.Write("Enter password for validation : ");
             string enteredPassword = Console.ReadLine();
-            return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
+
+            try
+            {
+                if (enteredPassword.Equals(""))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_STRING, "Password not be empty");
+                }
+                if (enteredPassword.Equals(null))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Password not be ull");
+                }
+                if (Regex.IsMatch(enteredPassword, REGEX_PASS))
+                {
+                    Console.WriteLine("Password is valid");
+                    return enteredPassword;
+                }
+                else
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_STRING, "Password be valid");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
         }
 
         //Method to test each Valid and Invalid email provided separately for testing
