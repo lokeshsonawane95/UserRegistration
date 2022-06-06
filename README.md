@@ -10,3 +10,4 @@
  9. Test all the sample emails provided separately
 10. Test Cases
 11. Exception handling
+12. Lambda Expression
