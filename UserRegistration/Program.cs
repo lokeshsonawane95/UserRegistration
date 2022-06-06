@@ -36,7 +36,9 @@
                         break;
                     case 4:
                         Validate validate4 = new Validate();
-                        Console.WriteLine(validate4.Mobile());
+                        Console.Write("Enter country code with Mobile number for validation (give a space between them) : ");
+                        string enteredMobileNumber = Console.ReadLine();
+                        Console.WriteLine(validate4.Mobile(enteredMobileNumber));
                         break;
                     case 5:
                         Validate validate5 = new Validate();
@@ -52,7 +54,9 @@
                         break;
                     case 8:
                         Validate validate8 = new Validate();
-                        Console.WriteLine(validate8.Password4());
+                        Console.Write("Enter password for validation : ");
+                        string enteredPassword = Console.ReadLine();
+                        Console.WriteLine(validate8.Password4(enteredPassword));
                         break;
                     case 9:
                         Validate validate9 = new Validate();

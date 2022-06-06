@@ -9,7 +9,7 @@ namespace UserRegistration
 {
     public class Validate
     {
-        public string Name(string name)
+        public Func<string, string> Name = (name) =>
         {
             //Regular expression or validating name
             string REGEX_FIRSTNAME = "^[A-Z][A-Za-z]{2,}$";
@@ -41,9 +41,9 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        }
+        };
 
-        public string Email(string email)
+        public Func<string, string> Email = (email) =>
         {
             //regular expression for validating email
             string REGEX_EMAIL = "^([A-Za-z]){3,}(([_.+-]?)([0-9A-Za-z]{1,}))*@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
@@ -75,15 +75,12 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        }
+        };
 
-        public string Mobile()
+        public Func<string, string> Mobile = (enteredMobileNumber) =>
         {
             //Regular expression for checking mobile number, all mobile numbers starts with 6, 7, 8 or 9
-            string REGEX_CELLNO = "^[+][1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
-
-            Console.Write("Enter country code with Mobile number for validation (give a space between them, write '+' at the beginning) : ");
-            string enteredMobileNumber = Console.ReadLine();
+            string REGEX_CELLNO = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
 
             try
             {
@@ -109,7 +106,7 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        }
+        };
 
         public string Password1()
         {
@@ -141,13 +138,10 @@ namespace UserRegistration
             return Regex.IsMatch(enteredPassword, REGEX_PASS) ? "Password is valid" : "Password is invalid";
         }
 
-        public string Password4()
+        public Func<string, string> Password4 = (enteredPassword) =>
         {
             //Regular expression below will match previous conditions + exactly one special character
             string REGEX_PASS = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$";
-
-            Console.Write("Enter password for validation : ");
-            string enteredPassword = Console.ReadLine();
 
             try
             {
@@ -173,7 +167,7 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        }
+        };
 
         //Method to test each Valid and Invalid email provided separately for testing
         public void Test()
