@@ -9,6 +9,8 @@ namespace UserRegistration
 {
     public class ValidateForMSTest
     {
+        public string message;
+
         string REGEX_NAME = "^[A-Z][A-Za-z]{2,}$";
 
         string REGEX_EMAIL = "^([A-Za-z]){3,}(([_.+-]?)([0-9A-Za-z]{1,}))*@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
@@ -16,6 +18,16 @@ namespace UserRegistration
         string REGEX_CELLNO = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
 
         string REGEX_PASS = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$";
+
+        public ValidateForMSTest()
+        {
+            Console.WriteLine("Default Constructor");
+        }
+
+        public ValidateForMSTest(string message)
+        {
+            this.message = message;
+        }
 
         public string Name(string name)
         {

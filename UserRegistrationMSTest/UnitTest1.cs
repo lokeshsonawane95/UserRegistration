@@ -64,5 +64,24 @@ namespace UserRegistrationMSTest
 
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        public void GivenUserRegistrationClassNameShouldReturnUserRegistrationObject()
+        {
+            object expected = new ValidateForMSTest();
+            UserRegistrationFactory userRegistrationFactory = new UserRegistrationFactory();
+            object actual = userRegistrationFactory.CreateUserRegistration("UserRegistration.ValidateForMSTest", "ValidateForMSTest");
+            expected.Equals(actual);
+        }
+
+        [TestMethod]
+        public void GivenUserRegistrationClassNameShouldReturnObjectUsingParameterizedConstructor()
+        {
+            object expected = new ValidateForMSTest("message");
+            UserRegistrationFactory userRegistrationFactory = new UserRegistrationFactory();
+            object actual = userRegistrationFactory.CreateUserRegistrationUsingParameterizedConstructor("UserRegistration.ValidateForMSTest", "ValidateForMSTest", "message");
+            expected.Equals(actual);
+        }
     }
 }

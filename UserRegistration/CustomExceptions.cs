@@ -12,7 +12,7 @@ namespace UserRegistration
 
         public enum ExceptionType
         {
-            NULL_STRING, EMPTY_STRING, INVALID_STRING
+            NULL_STRING, EMPTY_STRING, INVALID_STRING, NO_SUCH_CLASS, NO_SUCH_METHOD
         }
 
         public ExceptionType type;

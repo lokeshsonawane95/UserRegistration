@@ -25,7 +25,7 @@ namespace UserRegistration
                 }
                 if (enteredName.Equals(null))
                 {
-                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Name should not be ull");
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_STRING, "Name should not be null");
                 }
                 if (Regex.IsMatch(enteredName, REGEX_FIRSTNAME))
                 {
